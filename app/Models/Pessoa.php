@@ -13,5 +13,11 @@ class Pessoa extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = ['name', 'cpf', 'cep', 'logradouro', 'bairro', 'numero', 'estado', 'municipio'];
+
+     
+    public function contas()
+    {
+        return $this->hasMany(Conta::class, 'pessoa_id');
+    }
 }
 

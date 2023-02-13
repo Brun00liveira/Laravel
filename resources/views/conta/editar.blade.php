@@ -5,16 +5,17 @@
   @section('content')
 
     {{-- form start --}}
-    <section class="container">
-        <form action="" method="POST">
-          @csrf 
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Selecione</option>
-            <option value="3"></option>
-          </select>
+ <section class="container">
+
+        <form action="{{ route('alterar_conta', ['id' => $conta->id]) }}" method="POST">
+          @csrf  
+          <div class="form-group col-5">
+            <label for="conta">Conta</label>
+              <input type="text" class="form-control" id="conta" name="conta" value="{{$conta->pessoa_id}}" readonly>
+          </div>
             <div class="form-group col-5">
             <label for="conta">Número da conta</label>
-            <input type="text" class="form-control" id="conta" name="conta">
+            <input class="form-control" id="conta" name="conta" value="{{$conta->conta}}">
             </div>
             <br/>
             <button class="btn btn-danger" type="submit">Salvar cadastro</button>

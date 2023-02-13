@@ -6,15 +6,19 @@ use App\Models\Pessoa;
 use Illuminate\Http\Request;
 
 class ContaController extends Controller
-{
+{ 
     public function create()
     {
         //get() -> select * from conta
-        $pessoas = Pessoa::get();  
-        return view('conta.conta',['pessoas' => $pessoas]);
+        $contas = Conta::with('pessoa')->get(); 
+       
+        $pessoas = Pessoa::get();
+
+        return view('conta.conta',['contas' => $contas, 'pessoas' => $pessoas]);
     }
     public function register(Request $request)
     {
+   
         Conta::create([
             'pessoa_id' => $request->pessoa_id,
             'conta' => $request->conta,
@@ -30,8 +34,11 @@ class ContaController extends Controller
 
     public function edit($id)
     {
+        
         $conta = Conta::findOrFail($id);
+        
         return view('conta.editar', ['conta' => $conta]);
+        
     }
 
     public function update(Request $request, $id)

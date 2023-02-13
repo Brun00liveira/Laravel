@@ -14,8 +14,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/pessoa/pessoa">Cadastro de pessoa</a>
-          <a class="nav-item nav-link" href="#">Cadastro de conta</a>
+          <a class="nav-item nav-link" href="/pessoa/novo">Cadastro de pessoa</a>
+          <a class="nav-item nav-link" href="/conta/novo">Cadastro de conta</a>
           <a class="nav-item nav-link" href="#">movimentação bancaria</a>
           
         </div>
