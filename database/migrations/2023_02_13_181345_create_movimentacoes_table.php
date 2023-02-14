@@ -13,11 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contas', function (Blueprint $table) {
-            $table->id();
-            $table->string('conta');
+        Schema::create('movimentacoes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedBigInteger('conta_id');
             $table->unsignedBigInteger('pessoa_id');
+            $table->float('saldo');
+            $table->float('Valor');
+            $table->boolean('depositar_retirar');
+           
             $table->foreign('pessoa_id')->references('id')->on('pessoas');
+            $table->foreign('conta_id')->references('id')->on('contas');
+            
             $table->rememberToken();
             $table->timestamps();
         });
@@ -30,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contas');
+        Schema::dropIfExists('movimentacaos');
     }
 };
