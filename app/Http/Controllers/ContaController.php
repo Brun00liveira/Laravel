@@ -11,7 +11,6 @@ class ContaController extends Controller
     {
         //get() -> select * from conta
         $contas = Conta::with('pessoa')->get(); 
-       
         $pessoas = Pessoa::get();
 
         return view('conta.conta',['contas' => $contas, 'pessoas' => $pessoas]);

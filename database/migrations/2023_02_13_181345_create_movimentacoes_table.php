@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('conta_id');
             $table->unsignedBigInteger('pessoa_id');
             $table->float('saldo');
-            $table->float('Valor');
+            $table->float('valor');
             $table->boolean('depositar_retirar');
            
             $table->foreign('pessoa_id')->references('id')->on('pessoas');
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movimentacaos');
+        Schema::dropIfExists('movimentacoes');
     }
 };

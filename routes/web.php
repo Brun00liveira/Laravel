@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\ContaController;
-
+use App\Http\Controllers\MovimentacaoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +39,7 @@ Route::get('/conta/excluir/{id}',[ContaController::class, 'delete']);
 Route::post('/conta/excluir/{id}',[ContaController::class, 'destroy'])->name('excluir_conta');
 
 // ---------------- Rostas de conta end
+// ---------------- Rostas de movimentacao start
+Route::get('/movimentacao/novo', [MovimentacaoController::class, 'create']);
+Route::post('/movimentacao/novo', [MovimentacaoController::class, 'register'])->name('cadastrar_movimentacao');
+// ---------------- Rostas de movimentacao end

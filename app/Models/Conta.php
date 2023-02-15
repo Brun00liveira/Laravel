@@ -12,4 +12,9 @@ class Conta extends Model
     {
         return $this->belongsTo(Pessoa::class, 'pessoa_id');
     }
+    public function movimentacoes()
+    {
+        return $this->hasMany(Movimentacao::class, 'pessoa_id');
+    }
+
 }

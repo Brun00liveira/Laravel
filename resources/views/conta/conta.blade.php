@@ -7,11 +7,10 @@
 
     <section class="container">
       <h2 class="h2">Cadastro de conta</h2><br />
-        <form action="{{ route('cadastrar_conta' )}}" method="POST">
-          @csrf 
+        <form action="{{ route('cadastrar_conta')}}" method="POST">
+          @csrf
           <select class="form-select" name="pessoa_id" id="pessoa_id" aria-label="Default select example">
             <option value="" selected>Seleciona a pessoa</option>
-
               @foreach ($pessoas as $p)
                 <option value="{{$p->id}}">{{$p->name}} - {{$p->cpf}}</option>
               @endforeach
