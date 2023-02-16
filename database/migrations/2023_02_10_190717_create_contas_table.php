@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('contas', function (Blueprint $table) {
             $table->id();
             $table->string('conta');
+            $table->float('saldo');
             $table->unsignedBigInteger('pessoa_id');
             $table->foreign('pessoa_id')->references('id')->on('pessoas');
             $table->rememberToken();

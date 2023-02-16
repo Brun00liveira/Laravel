@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Movimentacao extends Model
 {
    
-    protected $fillable=['pessoa_id','conta_id','saldo','valor','depositar_retirar'];
+    protected $fillable=['pessoa_id','conta_id','valor','depositar_retirar'];
     
     public function pessoa()
     {

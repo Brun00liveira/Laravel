@@ -20,6 +20,10 @@
             <label for="conta">Número da conta</label>
             <input type="text" class="form-control" id="conta" name="conta">
             </div>
+            <div class="form-group">
+              <label for="saldo">Saldo</label>
+              <input type="number" class="form-control" id="saldo" name="saldo">
+            </div>
             <br/>
             <button class="btn btn-danger" type="submit">Salvar cadastro</button>
         </form>
@@ -29,7 +33,7 @@
             <tr>
               <th scope="col">id</th>
               <th scope="col">Nome</th>
-              <th scope="col">CPF</th>
+              <th scope="col">Saldo</th>
               <th scope="col">Conta</th>
               <th scope="col">Editar</th>
               <th scope="col">Deletar</th>
@@ -40,7 +44,7 @@
             <tr>
                 <td scope="row">{{$c->id}}</td>
                 <td scope="row">{{$c->pessoa->name}}</td>
-                <td scope="row">{{$c->pessoa->cpf}}</td>
+                <td scope="row">{{$c->saldo}}</td>
                 <td scope="row">{{$c->conta}}</td>
 
                 <td scope="row"><a href="editar/{{$c->id}}">\__/</a></td>

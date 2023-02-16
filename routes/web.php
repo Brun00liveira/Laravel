@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\ContaController;
 use App\Http\Controllers\MovimentacaoController;
+use App\Models\Movimentacao;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,4 +43,6 @@ Route::post('/conta/excluir/{id}',[ContaController::class, 'destroy'])->name('ex
 // ---------------- Rostas de movimentacao start
 Route::get('/movimentacao/novo', [MovimentacaoController::class, 'create']);
 Route::post('/movimentacao/novo', [MovimentacaoController::class, 'register'])->name('cadastrar_movimentacao');
+Route::post('/movimentacao/deposito', [MovimentacaoController::class, 'deposito'])->name('deposito_movimentacao');
+Route::get('/movimentacao/ver/{id}', [MovimentacaoController::class, 'show']);
 // ---------------- Rostas de movimentacao end

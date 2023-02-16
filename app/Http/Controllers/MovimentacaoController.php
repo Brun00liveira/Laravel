@@ -21,10 +21,30 @@ class MovimentacaoController extends Controller
         Movimentacao::create([
             'pessoa_id' => $request->pessoa_id,
             'conta_id' => $request->conta_id,
+            'valor' => $request->valor,
+            'saldo' => $request->saldo,
+            'depositar_retirar' => $request->depositar_retirar,
+        ]);       
+        return redirect('/movimentacao/novo');    
+    }
+    
+    public function depositar(Request $request)
+    {
+        Movimentacao::create([
+            'pessoa_id' => $request->pessoa_id,
+            'conta_id' => $request->conta_id,
             'saldo' => $request->saldo,
             'valor' => $request->valor,
             'depositar_retirar' => $request->depositar_retirar,
         ]);       
         return redirect('/movimentacao/novo');    
     }
+
+    public function show($id)
+    {   
+        $movimentacoes = Movimentacao::findOrFail($id);
+
+        return view('movimentacao.cadastro', ['movimentacoes' => $movimentacoes]);
+    }
+
 }

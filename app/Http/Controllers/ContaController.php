@@ -20,6 +20,7 @@ class ContaController extends Controller
    
         Conta::create([
             'pessoa_id' => $request->pessoa_id,
+            'saldo' => $request->saldo,
             'conta' => $request->conta,
         ]);
         return redirect('/conta/novo');
@@ -47,6 +48,7 @@ class ContaController extends Controller
         $conta->update([
             'conta' => $request->conta,
             'pessoa_id' => $request->pessoa_id,
+            'saldo' => $request->saldo_id,
         ]);
 
         return redirect('/conta/novo');

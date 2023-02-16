@@ -19,15 +19,10 @@
             <select class="form-select" id="conta" name="conta_id">
               <option value="" selected>Seleciona a conta</option>
                 @foreach ($contas as $c)
-              <option value="{{$c->id}}">{{$c->conta}}</option>
+              <option value="{{$c->id}}">{{$c->conta}} -> Saldo : {{$c->saldo}} R$</option>
                 @endforeach
             </select>
         </div>
-        <div class="form-group">
-          <label for="saldo">Saldo</label>
-          <input type="number" class="form-control" id="saldo" name="saldo">
-        </div>
-
         <div class="form-group">
             <label for="valor">Valor</label>
             <input type="number" class="form-control" id="valor" name="valor">
@@ -47,27 +42,26 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">id</th>
-          <th scope="col">conta_id</th>
-          <th scope="col">pessoa_id</th>
-          <th scope="col">saldo</th>
-          <th scope="col">valor</th>
-          <th scope="col">editar</th>
-          <th scope="col">deletar</th>
+          <th scope="col">Data</th>
+          <th scope="col">Valor</th>
         </tr>
       </thead>
       <tbody>
-        @foreach ($movimentacoes as $m)
+      @foreach ($movimentacoes as $m) 
         <tr>
-            <td scope="row">{{$m->id}}</td>
-            <td scope="row">{{$m->conta->id}}</td>
-            <td scope="row">{{$m->pessoa->id}}</td>
-            <td scope="row">{{$m->saldo}}</td>
-            <td scope="row">{{$m->valor}}</td>
+          <td scope="row">Agora</td>
+          
+          <td scope="row">
+            @if($m->depositar_retirar == 1){
+                {{$m->conta->saldo - $m->valor}}
+            }@else
+            {
+              {{$m->conta->saldo + $m->valor}}
+            }
+            @endif
+            </td>
 
-            <td scope="row"><a href="editar/{{$c->id}}">\__/</a></td>
-            <td scope="row"><a href="excluir/{{$c->id}}"> X </a></td> 
-        </tr>
+        </tr>   
         @endforeach
       </tbody>
     </table>

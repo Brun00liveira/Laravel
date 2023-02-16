@@ -17,10 +17,8 @@ return new class extends Migration
             $table->increments('id');
             $table->unsignedBigInteger('conta_id');
             $table->unsignedBigInteger('pessoa_id');
-            $table->float('saldo');
             $table->float('valor');
             $table->boolean('depositar_retirar');
-           
             $table->foreign('pessoa_id')->references('id')->on('pessoas');
             $table->foreign('conta_id')->references('id')->on('contas');
             
